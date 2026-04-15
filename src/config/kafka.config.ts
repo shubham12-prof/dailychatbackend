@@ -1,15 +1,15 @@
 import { Kafka } from "kafkajs";
-import fs from "fs";
-import path from "path";
 import { logger } from "../lib/logger.js";
+
+const formatKey = (key?: string) => key?.replace(/\\n/g, "\n");
 
 export const kafka = new Kafka({
   clientId: "chat-app",
   brokers: [process.env.KAFKA_BROKER!],
   ssl: {
-    ca: [fs.readFileSync(path.join(process.cwd(), "ca.pem"), "utf-8")],
-    cert: fs.readFileSync(path.join(process.cwd(), "service.cert"), "utf-8"),
-    key: fs.readFileSync(path.join(process.cwd(), "service.key"), "utf-8"),
+    ca: [formatKey(process.env.KAFKA_CA)!],
+    cert: formatKey(process.env.KAFKA_CERT)!,
+    key: formatKey(process.env.KAFKA_KEY)!,
   },
 });
 
