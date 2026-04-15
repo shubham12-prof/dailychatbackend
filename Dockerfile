@@ -13,6 +13,8 @@ RUN npx prisma generate
 
 RUN npx tsc
 
+RUN cp -r src/generated dist/generated
+
 EXPOSE 8000
 
 CMD ["npm", "start"]
