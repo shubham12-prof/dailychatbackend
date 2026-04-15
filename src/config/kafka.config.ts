@@ -7,6 +7,7 @@ export const kafka = new Kafka({
   clientId: "chat-app",
   brokers: [process.env.KAFKA_BROKER!],
   ssl: {
+    rejectUnauthorized: false,
     ca: [formatKey(process.env.KAFKA_CA)!],
     cert: formatKey(process.env.KAFKA_CERT)!,
     key: formatKey(process.env.KAFKA_KEY)!,
