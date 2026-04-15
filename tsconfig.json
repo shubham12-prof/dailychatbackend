@@ -6,7 +6,7 @@
     "verbatimModuleSyntax": true,
     "skipLibCheck": true,
     "types": ["node"],
-    "rootDir": ".",
+    "rootDir": "src",
     "outDir": "dist",
     "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
