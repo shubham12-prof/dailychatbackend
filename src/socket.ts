@@ -21,7 +21,7 @@ export function setUpSocket(io: Server) {
   io.use((socket: CustomSocket, next) => {
     const room = socket.handshake.auth.room || socket.handshake.headers.room;
     if (!room) {
-      return next(new Error("Invalid room pass the code"));
+      return next(new Error("Invalid room pass the codee in auth or header"));
     }
     socket.room = room;
     next();
