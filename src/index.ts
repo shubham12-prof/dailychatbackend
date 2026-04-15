@@ -43,7 +43,7 @@ createTopic()
     server.listen(PORT, () => logger.info(`Server is running on PORT ${PORT}`));
   })
   .catch((err) => {
-    logger.error({ error: err }, "Kafka topic creation failed");
+    console.error("Kafka topic creation failed:", err);
     process.exit(1);
   });
 
